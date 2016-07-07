@@ -23,7 +23,6 @@ static int __init init_thread(void)
     if (thread_st)
     {
         printk("Thread Created successfully\n");
-        printk("Thread Created successfully\n");
         wake_up_process(thread_st);
     }
     else
