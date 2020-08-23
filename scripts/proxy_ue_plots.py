@@ -16,7 +16,8 @@ from dateutil.parser import parse
 
 plot_dir = "/tmp/"
 
-plot_dir = input("Enter the output directory:")
+print "Enter the output directory"
+plot_dir = input()
 
 csv_file = "./proxy_ue.csv"
 
