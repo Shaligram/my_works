@@ -1,0 +1,13 @@
+# $1 = 0 ==> mainline
+# $2 comit Id
+# $3 job id
+if [ $1 -eq 0 ]
+then
+    /nfs-bfs/local/postreview/postreview.py $2 --precommit-url=http://jenkins.bfs.openwave.com:8080/jenkins/view/Pre-Commits/job/Integra_Mainline_RH7_Pre-Commit_RE/$3/
+elif [ $1 -eq 2 ]
+then
+    /nfs-bfs/local/postreview/postreview.py $2 --precommit-url=http://jenkins.bfs.openwave.com:8080/jenkins/view/Pre-Commits/job/Integra_Mainline-dpdk_RH7_Pre-Commit_RE/$3/
+elif [ $1 -eq 1 ]
+then
+    /nfs-bfs/workspace/magceshared/reviewboard/post-review $2 --precommit-url=http://jenkins.bfs.openwave.com:8080/jenkins/view/Pre-Commits/job/Integra_7.X_RH7_Pre-Commit_RE/$3/
+fi

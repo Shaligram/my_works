@@ -1,0 +1,41 @@
+export WS=/nfs-bfs/workspace/odc/sprakash/integra_m
+export DERBASE=/spare/sprakash/$2
+export SRC_HEAD=$WS/ngp/$2
+
+echo "The number of arguments is: $#"
+if [ $# -ne 2 ]
+then
+echo "exptected $1=0(remote_machine) $1=1(single node) $2=mainline/7.X"
+exit
+fi
+
+set -x
+if [ $1 -eq 0 ] 
+then
+echo "copying from remote"
+rsync -av sprakash@bfs-dl380pg8-01-xm9.bfs.openwave.com:$DERBASE/bin/pp_instrumentation_client /home/sprakash/metrics/ ; 
+
+#Library copy
+rsync -av sprakash@bfs-dl380pg8-01-xm9.bfs.openwave.com:$DERBASE/lib/lib*plugin* /opt/opwv/integra/99.9/tools/vpp/lib64/vpp_plugins/; 
+rsync -av sprakash@bfs-dl380pg8-01-xm9.bfs.openwave.com:$DERBASE/lib/libPacketProcessingSessionMetrics.so /opt/opwv/integra/99.9/tools/vpp/lib64/; 
+rsync -av sprakash@bfs-dl380pg8-01-xm9.bfs.openwave.com:$DERBASE/lib/libpp_common_log.so /opt/opwv/integra/99.9/tools/vpp/lib64/
+
+#Source code copy
+rsync -av sprakash@bfs-dl380pg8-01-xm9.bfs.openwave.com:$SRC_HEAD/vpp/* /home/sprakash/metrics/vpp/ ;  
+rsync -av sprakash@bfs-dl380pg8-01-xm9.bfs.openwave.com:$SRC_HEAD/common/src/PacketProcessing/* /home/sprakash/metrics/PacketProcessing; 
+
+else
+echo "copying from same - Single node"
+#rsync -av $DERBASE/bin/pp_instrumentation_client /home/sprakash/metrics/ ; 
+
+#Library copy
+#    rm -vf /opt/opwv/integra/SystemActivePath/tools/vpp/lib64/vpp_plugins/*shaping.so
+#    rsync -av $DERBASE/lib/libpp_common_log.so /opt/opwv/integra/SystemActivePath/common-lib/
+
+    rsync -ar --progress sprakash@bfs-dl380pg8-01-xm9.bfs.openwave.com:$DERBASE/lib/lib*plugin* /opt/opwv/integra/SystemActivePath/tools/vpp/lib64/vpp_plugins/; 
+    rsync -ar --progress sprakash@bfs-dl380pg8-01-xm9.bfs.openwave.com:$DERBASE/bin/pp_instrumentation_client /opt/opwv/integra/SystemActivePath/tools/vpp/lib64/vpp_plugins/;
+    rsync -ar --progress sprakash@bfs-dl380pg8-01-xm9.bfs.openwave.com:$DERBASE/lib/libPacketProcessingSessionMetrics.so /opt/opwv/integra/SystemActivePath/common-lib/;
+
+#Source code copy
+
+fi

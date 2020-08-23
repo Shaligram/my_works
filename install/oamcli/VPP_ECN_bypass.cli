@@ -1,0 +1,6 @@
+# NFQ
+
+addGroupOnlyIfNotExists [CFG_GROUP_ID=All_IPv4_TCP_ECN] Complex/TrafficServerElement//TrafficServer/nfq.all_ip/nfq.queues/CFG_GROUP_ID:All_IPv4_TCP_ECN:queueOptions:queue-balance:startQ:0:lastQ:3:IP:ipv4:excludeProtocols:tcp:TCP:true:UDP:false:AllIP:false:ECN:true:sourcePort:0:destinationPort:0:transparency:tr-full:interface:all:Mark:0
+
+addGroupOnlyIfNotExists [CFG_GROUP_ID=All_IPv6_TCP_ECN] Complex/TrafficServerElement//TrafficServer/nfq.all_ip/nfq.queues/CFG_GROUP_ID:All_IPv6_TCP_ECN:queueOptions:queue-balance:startQ:0:lastQ:3:IP:ipv6:excludeProtocols:tcp:TCP:true:UDP:false:AllIP:false:ECN:true:sourcePort:0:destinationPort:0:transparency:tr-full:interface:all:Mark:0
+

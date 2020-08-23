@@ -1,0 +1,4 @@
+Branch:   7xtomainline
+
+View:
+    //ngp/7.X/...    //ngp/mainline/...

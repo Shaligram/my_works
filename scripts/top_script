@@ -1,0 +1,5 @@
+#!/bin/sh
+while true; do
+    echo "$(top -b -n 1 d 1 H| grep vpp_wk_3)"  | tee -a top-output.log
+    sleep 60
+done

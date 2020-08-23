@@ -1,0 +1,5 @@
+trace add dpdk-input 100000
+trace add kni-input 100000
+trace add flow-lookup4_tcp 100000
+show trace-opwv opwv-tp4-passive max 100000
+

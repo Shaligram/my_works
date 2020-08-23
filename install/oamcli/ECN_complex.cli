@@ -1,0 +1,11 @@
+# Enable ECN tagging and set the interfaces client TCP traffic will be coming in on
+update Complex//ECN/Enabled:true
+update Complex//NetworkInterfaceConfig/NetworkInterfaces/client/ECN:true
+
+addGroupOnlyIfNotExists [CFG_GROUP_ID=6] Complex//ServiceAdministration/Controls/System/ServiceSwitches/CFG_GROUP_ID:6:Switch:DiffServMonitor:Value:ON
+update Complex//ServiceAdministration/Controls/System/ServiceSwitches/[Switch=DiffServMonitor]/Value:ON
+
+# Enable only congested optimization
+update Complex//ServiceAdministration/Controls/STM_No_Congestion/Active:true
+update Complex//ServiceAdministration/Controls/MDO_No_Congestion/Active:true
+

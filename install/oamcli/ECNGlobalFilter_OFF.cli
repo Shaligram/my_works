@@ -1,0 +1,2 @@
+deleteCfg Complex//GlobalFilter/Filters/ECNSTATE
+deleteCfg Complex//GlobalFilter/EnumGroups/ECNENUM

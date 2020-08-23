@@ -1,0 +1,4 @@
+Branch:   mainline_to_8.0.0.X
+
+View:
+    //ngp/mainline/...    //ngp/8.0.0.X/...

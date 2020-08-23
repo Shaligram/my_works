@@ -1,0 +1,3 @@
+addGroupOnlyIfNotExists [CFG_GROUP_ID=ECNENUM] Complex//GlobalFilter/EnumGroups/CFG_GROUP_ID:ECNENUM:GroupName:ECNEnum
+addGroupOnlyIfNotExists [CFG_GROUP_ID=ECNTRUE] Complex//GlobalFilter/EnumGroups/ECNENUM/Values/CFG_GROUP_ID:ECNTRUE:Value:True:Condition:%28%28HTTPMisc%2FVideoSessionEcnIsCongested%3D%3Dtrue%29%7C%7C%28%28%21%28HTTPMisc%2FVideoSessionEcnIsCongested%29%29+%26%26+%28Session%2FEcnIsCongested%3D%3Dtrue%29%29%29
+addGroupOnlyIfNotExists [CFG_GROUP_ID=ECNSTATE] Complex//GlobalFilter/Filters/CFG_GROUP_ID:ECNSTATE:Attribute:ECNCongested:Enabled:true:ValueDefault:False:ValueType:ENUM:ValueLocation:ECNEnum

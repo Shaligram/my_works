@@ -1,0 +1,10 @@
+i=$1
+while [ $i < 5 ]
+do
+#curl --interface 192.168.199.125  http://192.168.200.125:8080/metric_10mb 
+#curl --interface 192.168.199.126  http://192.168.200.126:8080/metric_10mb 
+ wget http://192.168.200.126/metric_20mb --bind-address 192.168.199.126 --delete-after --report-speed=bits &
+ wget http://192.168.200.12/metric_20mb --bind-address 192.168.199.125 --delete-after --report-speed=bits &
+sleep 1
+i=$i+1
+done 

@@ -1,0 +1,7 @@
+print Complex/SCA//SCAData/CPUCorePinning/ActiveCPUCoreMapping
+print Complex/SCA//SCAData/CPUCorePinning/CPUCoreMappings
+print Complex/SCA//SCAData/CPUCorePinning/CPUCoreMappings/TCP_group/CPUCoreMapping/1
+print Complex/SCA//SCAData/CPUCorePinning/CPUCoreMappings/TCP_group/CPUCoreMapping/2
+print Complex/SCA//SCAData/CPUCorePinning/CPUCoreMappings/TCP_group/CPUCoreMapping/3
+print Complex/SCA//SCAData/CPUCorePinning/CPUCoreMappings/TCP_group/CPUCoreMapping/4
+print Complex/SCA//SCAData/CPUCorePinning/CPUCoreMappings/TCP_group/CPUCoreMapping/5

@@ -1,0 +1,8 @@
+Acct-Status-Type = Start
+Acct-Session-Id = "3"
+NAS-IP-Address = 10.10.10.10
+Framed-IP-Address = 10.20.39.234 
+Calling-Station-Id = "+111234567"
+User-Name = "12345678@telus.com"
+Event-Timestamp = 111
+3GPP-Location-Info=0x8202F810974202F81001455A02

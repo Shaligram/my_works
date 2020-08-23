@@ -1,0 +1,19 @@
+print Complex/SCA//SCAData/CPUCorePinning/ActiveCPUCoreMapping
+
+addGroupOnlyIfNotExists [CFG_GROUP_ID=default] Complex/SCA//SCAData/CPUCorePinning/CPUCoreMappings/CFG_GROUP_ID:default:CPUReferenceName:default
+
+addGroupOnlyIfNotExists [CFG_GROUP_ID=default] Complex/SCA//SCAData/CPUCorePinning/CPUCoreMappings/default/CPUCoreMapping/CFG_GROUP_ID:0:CoreIdentity:0:CoreFunction:VPP_Main
+
+addGroupOnlyIfNotExists [CFG_GROUP_ID=default] Complex/SCA//SCAData/CPUCorePinning/CPUCoreMappings/default/CPUCoreMapping/CFG_GROUP_ID:1:CoreIdentity:1:CoreFunction:VPP_KNI
+
+addGroupOnlyIfNotExists [CFG_GROUP_ID=default] Complex/SCA//SCAData/CPUCorePinning/CPUCoreMappings/default/CPUCoreMapping/CFG_GROUP_ID:2:CoreIdentity:2:CoreFunction:VPP_KNI
+
+addGroupOnlyIfNotExists [CFG_GROUP_ID=default] Complex/SCA//SCAData/CPUCorePinning/CPUCoreMappings/default/CPUCoreMapping/CFG_GROUP_ID:3:CoreIdentity:3:CoreFunction:ATS_ET_NET,ATS_ET_NFQ
+
+addGroupOnlyIfNotExists [CFG_GROUP_ID=default] Complex/SCA//SCAData/CPUCorePinning/CPUCoreMappings/default/CPUCoreMapping/CFG_GROUP_ID:4:CoreIdentity:4:CoreFunction:ATS_ET_NET,ATS_ET_NFQ
+
+addGroupOnlyIfNotExists [CFG_GROUP_ID=default] Complex/SCA//SCAData/CPUCorePinning/CPUCoreMappings/default/CPUCoreMapping/CFG_GROUP_ID:5:CoreIdentity:5:CoreFunction:VPP_Work
+
+update Complex/SCA//SCAData/CPUCorePinning/ActiveCPUCoreMapping:default
+
+print Complex/SCA//SCAData/CPUCorePinning/ActiveCPUCoreMapping

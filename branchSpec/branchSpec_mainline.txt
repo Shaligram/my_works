@@ -1,0 +1,4 @@
+Branch:   mainline_pacing_to_mainline
+
+View:
+    //ngp/mainline_pacing/...    //ngp/mainline/...

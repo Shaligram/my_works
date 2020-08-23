@@ -1,0 +1,269 @@
+# THIS IS A GENERATED FILE - DO NOT EDIT OR DELETE
+#
+
+
+api-queue {
+  
+  length 40000
+  
+}
+
+api-segment {
+  
+  api-pvt-heap-size 2M
+  
+  api-size 256M
+  
+  gid opwv
+  
+  global-size 512M
+  
+}
+
+cpu {
+  # In the VPP there is one main thread and optionally the user can create worker(s)
+  # The main thread and worker thread(s) can be pinned to CPU core(s) manually or automatically
+  
+  # Scheduling policy options are:
+  #     other (SCHED_OTHER)
+  #     batch (SCHED_BATCH
+  #     idle  (SCHED_IDLE)
+  #     fifo  (SCHED_FIFO)
+  #     rr    (SCHED_RR)
+#  scheduler-policy fifo
+  corelist-workers 3 
+ 
+  # Scheduling priority is used only for "real-time policies (fifo and rr),
+  # and has to be in the range of priorities supported for a particular policy
+#  scheduler-priority 50
+  
+}
+
+dpdk {
+  
+  # dpdk-config 
+  
+  # Disable mutli-segment buffers, improves performance but
+  # disables Jumbo MTU support
+  # no-multi-seg
+  
+  # Disables UDP / TCP TX checksum offload. Typically needed for use
+  # faster vector PMDs (together with no-multi-seg)
+  no-tx-checksum-offload
+  
+  # Increase number of buffers allocated, needed only in scenarios with
+  # large number of interfaces and worker threads. Value is per CPU socket.
+  # Default is 16384
+  num-mbufs 500000
+  
+  # Change hugepages allocation per-socket, needed only if there is need for
+  # larger number of mbufs. Default is 256M on each detected CPU socket
+  socket-mem 256,256
+  
+  # Change UIO driver used by VPP.
+  # Options are:
+  #     igb_uio
+  #     vfio-pci
+  #     uio_pci_generic
+  #     auto (default)
+  uio-driver auto
+  
+  dev default {
+    
+    num-rx-desc 1024
+    
+    num-rx-queues 1
+    
+    num-tx-desc 4096
+    
+    num-tx-queues 1
+    
+    vlan-strip-offload off
+    
+  }
+
+  dev 0000:1b:00.0 {
+  }
+
+  dev 0000:13:00.0 {
+  }
+
+}
+
+fastpath-plugin {
+  
+  # Default inactivity time for all sessions.
+  default-idle-timeout 30
+  
+  default-tcp-timeout 300
+  
+  enable-bandwidth-estimate {
+    # rule {
+    #         proto    - protocol as defined by ip header
+    #         src-port - source port against protocol.
+    #       }
+    # 
+    # Multiple rules can be specified
+    #   start-reading-at-byte-count - Number of bytes from flow start after which we can start a reading.
+    #   start-reading-at-time       - Milliseconds from flow start after which we can start a reading.
+    #   stop-reading-at-byte-count  - Number of bytes from flow start after which we stop taking a reading.
+    #   stop-reading-at-time        - Milliseconds from start of reading, after which we stop taking a reading.
+    
+    
+    start-reading-at-byte-count 100000
+    
+    start-reading-at-time 1500
+    
+    stop-reading-at-byte-count 5000000
+    
+    stop-reading-at-time 5000
+    
+    rule {
+      
+      proto 17
+      
+      src-port 443
+      
+    }
+
+  }
+
+  # By default local heap is disabled
+  # enable-local-heap
+  
+  expiry-queue-limit 60000
+  
+  global-bihash-size 1024
+  
+  interim-queue-limit 60000
+  
+  main-core-suspend-timeout 50
+  
+  max-events-inactivity-messages 200
+  
+  max-events-interim-messages 100
+  
+  # Max_sessions per worker
+  max-sessions 1000000
+  
+  # Values are:
+  #     0 - Include only l4 header + Payload length in metering
+  #     1 - Include l3 header + l4 header + Payload length
+  #     2 - Include l2 header + l3 header + l4 header + Payload length.
+  #     Default is 1
+  metering-include-l2l3-header 0
+  
+  rate-limit-inactivity-messages 2000
+  
+  rate-limit-interim-messages 1000
+  
+  shaping {
+    
+    default-bps 0
+    
+    # Valid Types are:
+    #     0 - FP_HORIZON_APPROX_1S
+    #     1 - FP_HORIZON_APPROX_5S
+    #     2 - FP_HORIZON_APPROX_10S
+    horizon-type 0
+    
+   #session-shaping-throughput 0
+   #session-shaping-throughput 1048576
+    session-shaping-throughput 20971520
+   #session-shaping-throughput 52428800
+    
+    shaping-buffers-limit 125000
+    
+    shaping-burst-size 50
+    
+    slow-timer 100
+    
+  }
+
+  worker-bihash-size 512
+  
+}
+
+heapsize 2g
+
+kni {
+  
+  kni-config-script /opt/opwv/integra/99.9/tools/vpp/bin/vpp_kni_conf.sh
+  
+  poll-skip-count 0
+  
+  poll-sleep 0
+  
+}
+
+opwv-tcpproxy {
+  
+  global-bihash-size 2048
+
+  v4-worker-bihash-size 1111
+
+  v6-worker-bihash-size 1111
+  
+  idle-time 300
+  
+  max-connections 10000
+  
+  wait-time 0
+  
+}
+
+plugins {
+  
+  plugin flowprobe_plugin.so { disable }
+  plugin gtpu_plugin.so { disable }
+  plugin ila_plugin.so { disable }
+  plugin ioam_plugin.so { disable }
+  plugin ixge_plugin.so { disable }
+  plugin kubeproxy_plugin.so { disable }
+  plugin l2e_plugin.so { disable }
+  plugin lb_plugin.so { disable }
+  plugin libsixrd_plugin.so { disable }
+  plugin nat_plugin.so { disable }
+  plugin pppoe_plugin.so { disable }
+  plugin stn_plugin.so { disable }
+  
+  path /opt/opwv/integra/99.9/tools/vpp/lib64/vpp_plugins
+  
+}
+
+unix {
+  
+  cli-listen /run/vpp/cli.sock
+  
+  gid opwv
+
+  #cli-line-mode
+  
+  log /var/opt/opwv/logs/vpp.log
+  
+  startup-config /opt/opwv/integra/99.9/tools/vpp/conf/vpp.conf
+  
+  full-coredump
+  
+  nodaemon
+  
+}
+
+upp-instrumentation {
+  
+  instrumentation-enabled 1
+  
+  max-flows_per_ue 50
+  
+  metric-table-size 1000000
+  
+  metrics-subinterval 1000
+  
+  reporting-period 30
+  
+  subinterval-threshold 500000
+  
+}
+
+
+# End of File

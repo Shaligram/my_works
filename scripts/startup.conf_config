@@ -1,0 +1,312 @@
+# THIS IS A GENERATED FILE - DO NOT EDIT OR DELETE
+#
+
+
+api-queue {
+  
+  length 40000
+  
+}
+
+api-segment {
+  
+  api-pvt-heap-size 2M
+  
+  api-size 256M
+  
+  gid opwv
+  
+  global-size 512M
+  
+}
+
+buffers {
+  
+  # Number of buffers allocated, only need in scenarios with large number of interfaces and worker threads.
+  buffers-per-numa 134400
+  
+}
+
+cpu {
+  # In the VPP there is one main thread and optionally the user can create worker(s)
+  # The main thread and worker thread(s) can be pinned to CPU core(s) manually or automatically
+  
+  # Set logical CPU core(s) where worker threads are running
+  corelist-workers 3
+  
+  # Set logical CPU core where main thread runs
+  main-core 5
+  
+  # Scheduling policy options are:
+  #     other (SCHED_OTHER)
+  #     batch (SCHED_BATCH
+  #     idle  (SCHED_IDLE)
+  #     fifo  (SCHED_FIFO)
+  #     rr    (SCHED_RR)
+  scheduler-policy fifo
+  
+  # Scheduling priority is used only for "real-time policies (fifo and rr),
+  # and has to be in the range of priorities supported for a particular policy
+  scheduler-priority 50
+  
+  # Sets number of CPU core(s) to be skipped (1 ... N-1)
+  # Skipped CPU core(s) are not used for pinning main thread and working thread(s).
+  # The main thread is automatically pinned to the first available CPU core and worker(s)
+  # are pinned to next free CPU core(s) after core assigned to main thread
+  # skip-cores 
+  
+}
+
+dpdk {
+  
+  # dpdk-config 
+  
+  # Disable mutli-segment buffers, improves performance but
+  # disables Jumbo MTU support
+  no-multi-seg
+  
+  # Disables UDP / TCP TX checksum offload. Typically needed for use
+  # faster vector PMDs (together with no-multi-seg)
+  no-tx-checksum-offload
+  
+  # Change hugepages allocation per-socket, needed only if there is need for
+  # larger number of mbufs. Default is 256M on each detected CPU socket
+  socket-mem 256,256
+  
+  # Change UIO driver used by VPP.
+  # Options are:
+  #     igb_uio
+  #     vfio-pci
+  #     uio_pci_generic
+  #     auto (default)
+  uio-driver auto
+  
+  dev default {
+    
+    num-rx-desc 1024
+    
+    num-rx-queues 2
+    
+    num-tx-desc 4096
+    
+    num-tx-queues 2
+    
+    vlan-strip-offload off
+    
+  }
+
+  dev 0000:13:00.0 {
+    vlan-strip-offload off
+  }
+
+  dev 0000:1b:00.0 {
+    vlan-strip-offload off
+  }
+
+}
+
+fastpath-plugin {
+  
+  # Default inactivity time for all sessions.
+  default-idle-timeout 30
+  
+  default-tcp-timeout 300
+  
+  enable-bandwidth-estimate {
+    # rule {
+    #         proto    - protocol as defined by ip header
+    #         src-port - source port against protocol.
+    #       }
+    # 
+    # Multiple rules can be specified
+    #   start-reading-at-byte-count - Number of bytes from flow start after which we can start a reading.
+    #   start-reading-at-time       - Milliseconds from flow start after which we can start a reading.
+    #   stop-reading-at-byte-count  - Number of bytes from flow start after which we stop taking a reading.
+    #   stop-reading-at-time        - Milliseconds from start of reading, after which we stop taking a reading.
+    
+    
+    start-reading-at-byte-count 100000
+    
+    start-reading-at-time 1500
+    
+    stop-reading-at-byte-count 5000000
+    
+    stop-reading-at-time 5000
+    
+    rule {
+      
+      proto 17
+      
+      src-port 443
+      
+    }
+
+  }
+
+  expiry-queue-limit 60000
+  
+  global-bihash-size 2048
+  
+  interim-queue-limit 60000
+  
+  main-core-suspend-timeout 50
+  
+  max-events-inactivity-messages 200
+  
+  max-events-interim-messages 100
+  
+  # Maximum number of offloaded flows per process
+  max-sessions 1000000
+  
+  # Values are:
+  #     0 - Include only l4 header + Payload length in metering
+  #     1 - Include l3 header + l4 header + Payload length
+  #     2 - Include l2 header + l3 header + l4 header + Payload length.
+  #     Default is 1
+  metering-include-l2l3-header 0
+  
+  rate-limit-inactivity-messages 2000
+  
+  rate-limit-interim-messages 1000
+  
+  shaping {
+    
+    default-bps 0
+    
+    # Valid Types are:
+    #     0 - FP_HORIZON_APPROX_1S
+    #     1 - FP_HORIZON_APPROX_5S
+    #     2 - FP_HORIZON_APPROX_10S
+    horizon-type 0
+    
+    per-worker-heap-size 16
+    
+    session-shaping-throughput 96000000
+    
+    shaping-buffers-limit 125000
+    
+    shaping-burst-size 50
+    
+    shaping-fine 0
+    
+  }
+
+  worker-bihash-size 1024
+  
+}
+
+heapsize 10g
+
+kni {
+  
+  corelist-knis 1,2
+  
+  kni-config-script /opt/opwv/integra/99.9/tools/vpp/bin/vpp_kni_conf.sh
+  
+  kthread-core 1
+  
+  num-sp-slaves 1
+  
+  poll-skip-count 0
+  
+  poll-sleep 0
+  
+}
+
+opwv-tcpproxy {
+  
+  global-bihash-size 2048
+  
+  idle-time 300
+  
+  max-connections 1000000
+  
+  v4-worker-bihash-size 1024
+  
+  v6-worker-bihash-size 1024
+  
+  wait-time 0
+tcp-profile {
+   		high-pkt-loss-ss-flag 1
+   		cwnd-clamp 724
+   		initial-cwnd 44
+   		max-rtt 490
+   		dyn-cwnd-gain-flag 1
+   		ack-aggr-flag 1
+   		high-rtt-threshold-flag 1
+   		high-pkt-loss-download-flag 1
+   		logging-flag 0
+   		rsvdflags 1
+   		accl-flags 7
+   		cwnd-gain-factor 512
+   		high-rtt-threshold-ss 300
+	}
+  
+}
+
+plugins {
+  
+  plugin flowprobe_plugin.so { disable }
+  plugin gtpu_plugin.so { disable }
+  plugin ila_plugin.so { disable }
+  plugin ioam_plugin.so { disable }
+  plugin ixge_plugin.so { disable }
+  plugin kubeproxy_plugin.so { disable }
+  plugin l2e_plugin.so { disable }
+  plugin lb_plugin.so { disable }
+  plugin libsixrd_plugin.so { disable }
+  plugin nat_plugin.so { disable }
+  plugin pppoe_plugin.so { disable }
+  plugin stn_plugin.so { disable }
+  
+  path /opt/opwv/integra/99.9/tools/vpp/lib/vpp_plugins
+  
+}
+
+unix {
+  
+  cli-listen /run/vpp/cli.sock
+  
+  gid opwv
+  
+  log /var/opt/opwv/logs/vpp.log
+  
+  startup-config /opt/opwv/integra/99.9/tools/vpp/conf/vpp.conf
+  
+  full-coredump
+  
+  nodaemon
+  
+}
+
+upp-instrumentation {
+  
+  instrumentation-enabled 0
+  
+  metric-table-size 1000000
+  
+  metrics-Event-Reporting-Window 30
+  
+  metrics-subinterval 1000
+  
+  reporting-period 60
+  
+  session-guard-timer 900
+  
+  subinterval-threshold 500000
+  
+}
+
+opwv-tcpproxy-app {
+   uplink-fifo-min-size 512
+   downlink-fifo-min-size 2048
+   fifo-max-size 4096
+   fifo-grow-exp 1
+   fifo-grow-exp-percent 50
+   num-prealloc-proxies 50000
+   prealloc-fifos 0
+   snd-wnd-percent 250
+   #tcpopt-enabled 0
+  }
+
+# End of File

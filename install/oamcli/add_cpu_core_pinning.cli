@@ -1,0 +1,55 @@
+print Complex/SCA//SCAData/CPUCorePinning/ActiveCPUCoreMapping
+
+addGroupOnlyIfNotExists [CFG_GROUP_ID=v24_NoTCP] Complex/SCA//SCAData/CPUCorePinning/CPUCoreMappings/CFG_GROUP_ID:v24_NoTCP:CPUReferenceName:v24_NoTCP
+
+addGroupOnlyIfNotExists [CFG_GROUP_ID=0] Complex/SCA//SCAData/CPUCorePinning/CPUCoreMappings/v24_NoTCP/CPUCoreMapping/CFG_GROUP_ID:0:CoreIdentity:0:CoreFunction:FFMPEG
+
+addGroupOnlyIfNotExists [CFG_GROUP_ID=1] Complex/SCA//SCAData/CPUCorePinning/CPUCoreMappings/v24_NoTCP/CPUCoreMapping/CFG_GROUP_ID:1:CoreIdentity:1:CoreFunction:VPP_KNI
+
+addGroupOnlyIfNotExists [CFG_GROUP_ID=2] Complex/SCA//SCAData/CPUCorePinning/CPUCoreMappings/v24_NoTCP/CPUCoreMapping/CFG_GROUP_ID:2:CoreIdentity:2:CoreFunction:VPP_KNI
+
+addGroupOnlyIfNotExists [CFG_GROUP_ID=3] Complex/SCA//SCAData/CPUCorePinning/CPUCoreMappings/v24_NoTCP/CPUCoreMapping/CFG_GROUP_ID:3:CoreIdentity:3:CoreFunction:VPP_KNI
+
+addGroupOnlyIfNotExists [CFG_GROUP_ID=4] Complex/SCA//SCAData/CPUCorePinning/CPUCoreMappings/v24_NoTCP/CPUCoreMapping/CFG_GROUP_ID:4:CoreIdentity:4:CoreFunction:VPP_KNI
+
+addGroupOnlyIfNotExists [CFG_GROUP_ID=5] Complex/SCA//SCAData/CPUCorePinning/CPUCoreMappings/v24_NoTCP/CPUCoreMapping/CFG_GROUP_ID:5:CoreIdentity:5:CoreFunction:VPP_Work
+
+addGroupOnlyIfNotExists [CFG_GROUP_ID=6] Complex/SCA//SCAData/CPUCorePinning/CPUCoreMappings/v24_NoTCP/CPUCoreMapping/CFG_GROUP_ID:6:CoreIdentity:6:CoreFunction:VPP_Work
+
+addGroupOnlyIfNotExists [CFG_GROUP_ID=7] Complex/SCA//SCAData/CPUCorePinning/CPUCoreMappings/v24_NoTCP/CPUCoreMapping/CFG_GROUP_ID:7:CoreIdentity:7:CoreFunction:ATS_ET_NET,ATS_ET_NFQ
+
+addGroupOnlyIfNotExists [CFG_GROUP_ID=8] Complex/SCA//SCAData/CPUCorePinning/CPUCoreMappings/v24_NoTCP/CPUCoreMapping/CFG_GROUP_ID:8:CoreIdentity:8:CoreFunction:ATS_ET_NET,ATS_ET_NFQ
+
+addGroupOnlyIfNotExists [CFG_GROUP_ID=9] Complex/SCA//SCAData/CPUCorePinning/CPUCoreMappings/v24_NoTCP/CPUCoreMapping/CFG_GROUP_ID:9:CoreIdentity:9:CoreFunction:AGG_Work
+
+addGroupOnlyIfNotExists [CFG_GROUP_ID=10] Complex/SCA//SCAData/CPUCorePinning/CPUCoreMappings/v24_NoTCP/CPUCoreMapping/CFG_GROUP_ID:10:CoreIdentity:10:CoreFunction:AGG_Work
+
+addGroupOnlyIfNotExists [CFG_GROUP_ID=11] Complex/SCA//SCAData/CPUCorePinning/CPUCoreMappings/v24_NoTCP/CPUCoreMapping/CFG_GROUP_ID:11:CoreIdentity:11:CoreFunction:AGG_GPB_Server
+
+addGroupOnlyIfNotExists [CFG_GROUP_ID=12] Complex/SCA//SCAData/CPUCorePinning/CPUCoreMappings/v24_NoTCP/CPUCoreMapping/CFG_GROUP_ID:12:CoreIdentity:12:CoreFunction:VPP_Work
+
+addGroupOnlyIfNotExists [CFG_GROUP_ID=13] Complex/SCA//SCAData/CPUCorePinning/CPUCoreMappings/v24_NoTCP/CPUCoreMapping/CFG_GROUP_ID:13:CoreIdentity:13:CoreFunction:VPP_Work
+
+addGroupOnlyIfNotExists [CFG_GROUP_ID=14] Complex/SCA//SCAData/CPUCorePinning/CPUCoreMappings/v24_NoTCP/CPUCoreMapping/CFG_GROUP_ID:14:CoreIdentity:14:CoreFunction:VPP_Main
+
+addGroupOnlyIfNotExists [CFG_GROUP_ID=15] Complex/SCA//SCAData/CPUCorePinning/CPUCoreMappings/v24_NoTCP/CPUCoreMapping/CFG_GROUP_ID:15:CoreIdentity:15:CoreFunction:ATS_ET_NET,ATS_ET_NFQ
+
+addGroupOnlyIfNotExists [CFG_GROUP_ID=16] Complex/SCA//SCAData/CPUCorePinning/CPUCoreMappings/v24_NoTCP/CPUCoreMapping/CFG_GROUP_ID:16:CoreIdentity:16:CoreFunction:ATS_ET_NET,ATS_ET_NFQ
+
+addGroupOnlyIfNotExists [CFG_GROUP_ID=17] Complex/SCA//SCAData/CPUCorePinning/CPUCoreMappings/v24_NoTCP/CPUCoreMapping/CFG_GROUP_ID:17:CoreIdentity:17:CoreFunction:ATS_ET_NET,ATS_ET_NFQ
+
+addGroupOnlyIfNotExists [CFG_GROUP_ID=18] Complex/SCA//SCAData/CPUCorePinning/CPUCoreMappings/v24_NoTCP/CPUCoreMapping/CFG_GROUP_ID:18:CoreIdentity:18:CoreFunction:ATS_ET_NET,ATS_ET_NFQ
+
+addGroupOnlyIfNotExists [CFG_GROUP_ID=19] Complex/SCA//SCAData/CPUCorePinning/CPUCoreMappings/v24_NoTCP/CPUCoreMapping/CFG_GROUP_ID:19:CoreIdentity:19:CoreFunction:ATS_ET_NET,ATS_ET_NFQ
+
+addGroupOnlyIfNotExists [CFG_GROUP_ID=20] Complex/SCA//SCAData/CPUCorePinning/CPUCoreMappings/v24_NoTCP/CPUCoreMapping/CFG_GROUP_ID:20:CoreIdentity:20:CoreFunction:ATS_ET_NET,ATS_ET_NFQ
+
+addGroupOnlyIfNotExists [CFG_GROUP_ID=21] Complex/SCA//SCAData/CPUCorePinning/CPUCoreMappings/v24_NoTCP/CPUCoreMapping/CFG_GROUP_ID:21:CoreIdentity:21:CoreFunction:ATS_ET_NET,ATS_ET_NFQ
+
+addGroupOnlyIfNotExists [CFG_GROUP_ID=22] Complex/SCA//SCAData/CPUCorePinning/CPUCoreMappings/v24_NoTCP/CPUCoreMapping/CFG_GROUP_ID:22:CoreIdentity:22:CoreFunction:ATS_ET_NET,ATS_ET_NFQ
+
+addGroupOnlyIfNotExists [CFG_GROUP_ID=23] Complex/SCA//SCAData/CPUCorePinning/CPUCoreMappings/v24_NoTCP/CPUCoreMapping/CFG_GROUP_ID:23:CoreIdentity:23:CoreFunction:ATS_ET_NET,ATS_ET_NFQ
+
+update Complex/SCA//SCAData/CPUCorePinning/ActiveCPUCoreMapping:v24_NoTCP
+
+print Complex/SCA//SCAData/CPUCorePinning/ActiveCPUCoreMapping
